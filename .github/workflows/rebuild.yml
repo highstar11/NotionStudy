@@ -1,0 +1,14 @@
+# .github/workflows/rebuild.yml
+name: Trigger Vercel rebuild
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # 매시간 (UTC 기준)
+  workflow_dispatch: # 수동 실행 버튼
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Vercel deploy hook
+        run: curl -fsS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
