@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Study Log",
+  title: "Highstar's Log",
   description: "공부 기록 노션 자동화 웹페이지",
 };
 
