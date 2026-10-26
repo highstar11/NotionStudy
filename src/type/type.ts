@@ -4,4 +4,5 @@ export const notionProps = {
   slug: "Slug",
   status: "선택",
   date: "작성일",
+  tag: "주제"
 } as const;

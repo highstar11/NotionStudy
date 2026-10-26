@@ -13,6 +13,8 @@ export type PostSummary = {
   id: string;
   title: string;
   slug: string;
+  date: string | undefined;
+  tag: string;
 };
 
 /* ---------- Markdown 변환 설정 ---------- */
@@ -83,6 +85,9 @@ export async function fetchPublishedPosts(): Promise<PostSummary[]> {
   return res.results.filter(isFullPage).map((page) => {
     const title = page.properties[notionProps.title];
     const slug = page.properties[notionProps.slug];
+    const date = page.properties[notionProps.date];
+    const tag = page.properties[notionProps.tag];
+
     return {
       id: page.id,
       title:
@@ -93,12 +98,13 @@ export async function fetchPublishedPosts(): Promise<PostSummary[]> {
           slug?.type === "rich_text"
               ? slug.rich_text.map((t) => t.plain_text).join("")
               : "",
+      date: date?.type === "date" ? date.date?.start : "",
+      tag: tag?.type === "rich_text" ? tag.rich_text.map((t) => t.plain_text).join("") : "",
     };
   });
 }
 
 /* ---------- 단일 글 조회 ---------- */
-
 export async function fetchPostBySlug(slug: string) {
   const res = await notion.dataSources.query({
     data_source_id: process.env.NOTION_DATA_SOURCE_ID!,
