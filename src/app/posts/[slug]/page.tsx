@@ -5,6 +5,7 @@ import { getPostBySlug, getPublishedPosts } from "@/lib/posts";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
+import LoadingComponents from "@/components/LoadingComponents";
 import "highlight.js/styles/github-dark.css";
 
 export async function generateStaticParams() {
@@ -53,7 +54,7 @@ export default function PostPage({
 }) {
   return (
     <main className="mx-auto max-w-2xl p-8">
-      <Suspense fallback={<p>불러오는 중...</p>}>
+      <Suspense fallback={<LoadingComponents />}>
         <PostContent params={params} />
       </Suspense>
     </main>
