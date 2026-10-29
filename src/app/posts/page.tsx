@@ -41,8 +41,8 @@ function Chip({ href, active, children }: { href: string; active: boolean; child
             aria-current={active ? "page" : undefined}
             className={`inline-flex h-10 items-center gap-2 rounded-full border px-4 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 ${focus} ${
                 active
-                    ? "border-blue-600 bg-blue-600 text-white"
-                    : "border-zinc-200 bg-zinc-50 text-zinc-700 hover:border-blue-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-blue-400"
+                    ? "border-gray-900 bg-gray-900 text-white"
+                    : "border-zinc-300 bg-zinc-50 text-zinc-700 hover:border-gray-900 dark:border-zinc-300 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:border-gray-900"
             }`}
         >
             {children}
@@ -54,7 +54,7 @@ function PostRow({ post }: { post: Post }) {
     return (
         <Link
             href={`/posts/${post.slug}`}
-            className={`group flex items-center justify-between gap-4 rounded-3xl border border-zinc-200 bg-zinc-50 p-5 break-keep transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 sm:p-6 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-400 ${focus}`}
+            className={`group flex items-center justify-between gap-4 rounded-3xl border border-zinc-200 bg-zinc-50 p-5 break-keep transition-all duration-300 hover:-translate-y-1 hover:border-gray-900 sm:p-6 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-400 ${focus}`}
         >
             <div className="min-w-0">
                 <time className="text-sm tabular-nums text-zinc-500 dark:text-zinc-400">{post.date}</time>
@@ -62,7 +62,7 @@ function PostRow({ post }: { post: Post }) {
             </div>
             <span
                 aria-hidden
-                className="grid size-10 shrink-0 -rotate-45 place-items-center rounded-full border border-zinc-300 text-zinc-500 transition-all duration-300 group-hover:rotate-0 group-hover:border-blue-600 group-hover:bg-blue-600 group-hover:text-white dark:border-zinc-700"
+                className="grid size-10 shrink-0 -rotate-45 place-items-center rounded-full border border-zinc-300 text-zinc-500 transition-all duration-300 group-hover:rotate-0 group-hover:border-gray-900 group-hover:bg-gray-900 group-hover:text-white dark:border-zinc-700"
             >
                 <Arrow />
             </span>
@@ -152,12 +152,12 @@ async function PostsContent({
             <nav aria-label="태그 필터" className="mt-10 flex flex-wrap gap-2">
                 <Chip href="/posts" active={!isValid}>
                     전체
-                    <span className="tabular-nums opacity-70">{published.length}</span>
+                    <span className="tabular-nums">{published.length}</span>
                 </Chip>
                 {tags.map((t) => (
                     <Chip key={t} href={`/posts?tag=${encodeURIComponent(t)}`} active={selected === t}>
                         {t}
-                        <span className="tabular-nums opacity-70">{groups.get(t)!.length}</span>
+                        <span className="tabular-nums">{groups.get(t)!.length}</span>
                     </Chip>
                 ))}
             </nav>
@@ -165,11 +165,11 @@ async function PostsContent({
             <div className="mt-14 space-y-14 sm:mt-20 sm:space-y-20">
                 {visible.map(([tag, items]) => (
                     <section key={tag} aria-labelledby={`tag-${tag}`} className="reveal">
-                        <div className="flex items-center gap-3">
-                            <h2 id={`tag-${tag}`} className="text-2xl font-semibold tracking-tight sm:text-3xl">
+                        <div className="flex items-center gap-2">
+                            <h2 id={`tag-${tag}`} className="text-2xl font-bold tracking-tight sm:text-3xl">
                                 {tag}
                             </h2>
-                            <span className="rounded-full bg-blue-600 px-3 py-1 text-sm font-semibold tabular-nums text-white">
+                            <span className="rounded-lg bg-gray-900 px-3.5 py-1 text-md font-semibold tabular-nums text-white">
                                 {items.length}
                             </span>
                         </div>
