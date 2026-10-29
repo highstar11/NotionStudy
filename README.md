@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📝 My Study In Notion
+# 📝 Highstar's Log
 
 **노션에 쓰면 자동으로 발행되는 개발 기록 사이트**
 
@@ -13,20 +13,22 @@
 
 ---
 
-## 🚧 개발 중입니다
+## 🚧 개발 진행 중!
 
-현재 기본 구조를 만들고 있는 초기 단계예요.
-노션에서 공부 기록을 쓰고, 상태를 **공개**로 바꾸기만 하면 사이트에 올라가는 것을 목표로 해요.
+현재 기본 구조를 만들고 있는 중이고, 현재 자동 빌드와 배포는 Vercel로 완료했어요.
+이제는 블로그처럼 댓글과 기타 기능 구현이 목적이에요.
+
+추가로 AI를 활용한 시험 기능도 추가해 볼 생각입니다.
 
 ## ✨ 만들고 싶은 기능
 
 - [x] 프로젝트 세팅 (Next.js + TypeScript)
 - [x] 노션 DB 연결 (공개 글 목록 가져오기)
-- [ ] 노션 본문 → 마크다운 변환 및 상세 페이지
+- [x] 노션 본문 → 마크다운 변환 및 상세 페이지
 - [ ] 이미지 저장 처리
-- [ ] 자동 갱신 및 배포 (Vercel)
+- [x] 자동 갱신 및 배포 (Vercel)
 - [ ] 댓글 (giscus)
-- [ ] 공부 기록 레벨업 시스템 (XP, 스트릭, 뱃지) 🎮
+- [ ] AI의 시험 출제와 풀이
 
 ## 🛠 Tech Stack
 
@@ -36,7 +38,7 @@
 | Language | TypeScript |
 | Styling | Tailwind CSS |
 | Data | Notion API |
-| Deploy | Vercel (예정) |
+| Deploy | Vercel (완료) |
 
 ## 🚀 Getting Started
 
@@ -60,3 +62,7 @@ npm run dev
 ## 📌 License
 
 MIT
+
+## 🔗 Link
+
+https://highstar-notion-study.vercel.app/
